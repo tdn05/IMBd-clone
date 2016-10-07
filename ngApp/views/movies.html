@@ -1,0 +1,66 @@
+<div class="movies">
+    <div class="col-md-8" id='movies'>
+        <h3>Movies List</h3>
+
+        <ul class='nav nav-tabs'>
+            <li class='active'><a data-toggle='tab' href="#inTheaters">In Theaters</a></li>
+            <li><a data-toggle='tab' href="#comingSoon">Coming Soon</a></li>
+
+        </ul>
+
+        <div class="tab-content">
+            <div class="tab-pane fade in active" id="inTheaters">
+                <div class="container-fluid">
+                    <div>
+                        <table class=table>
+                            <tr ng-repeat= 'm in vm.movies'>
+                                <td class='tblWidth'>
+                                        <img class='movPic' ng-src="{{m.imgUrl}}" alt="" width='200px'/>
+
+                                </td>
+                                <td style='text-align: left'>
+                                    <a href="#">
+                                        <h4 ng-click='vm.getMovieDetails(m._id)'>{{m.title}}</h4>
+                                    </a>
+                                    <p>
+                                        {{m.rate}}
+                                    </p>
+                                    <p>
+                                        {{m.genre}}
+                                    </p>
+                                    <p>
+                                        {{m.description}}
+                                    </p>
+                                    <p>
+                                        <strong>Director: </strong> {{m.director}}
+                                    </p>
+                                    <p>
+                                        <strong>Stars: </strong>
+                                        <span ng-repeat='a in m.actors'>{{a.firstName}}, </span>
+
+                                    </p>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="share">
+            <p>
+                <strong>Share</strong> this page:
+
+
+                <button type="button" class='share1'><i class="fa fa-facebook-square" aria-hidden="true"></i></button>
+                <button type="button"  class='share1' name="button"><i class="fa fa-twitter" aria-hidden="true"></i></button>
+                <button type="button"  class='share1' name="button"><i class="fa fa-share-square-o" aria-hidden="true"></i></button>
+            </p>
+            <p>
+                <button type="button" class='btn btn-primary btn-sm'><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>  Like</button>
+                15K people like this. Be the first of your friends to like.
+            </p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html ng-app="imbd">
+
+<head>
+  <title>imbd</title>
+  <meta charset="utf-8">
+  <base href="/" />
+  <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/ngApp/css/site.css"/>
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <script src="https://use.fontawesome.com/9983e60038.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <nav class='navbar navbar-default navbar-inverse navbar-static-top'>
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class='navbar-brand'href="/">
+                            <button id='logo' class='logoButton'>IMBd</button>
+                        </a>
+                    </div>
+                    <form class="navbar-form navbar-left">
+                        <input type="text" name="name" placeholder='Find Movies, TV shows, Celebrities, and more...' size='70'>
+                        <select id='navSelect' name="All">
+                            <option>All</option>
+                            <option>Title</option>
+                            <option>Tv Episodes</option>
+                            <option>Companies</option>
+                            <option>Key Words</option>
+                            <option>Characters</option>
+                        </select>
+                        <button class='myButton' type="button" name="button">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </button>
+                    </form>
+                    <span id="pro">
+                        <p class='navbar-text'>
+                            <img src="http://ia.media-imdb.com/images/G/01/imdb/images/navbar/imdbpro_logo_nb-720143162._CB282950488_.png" alt="" />
+                            |    help    |
+                            <i class="fa fa-facebook-square" aria-hidden="true"></i>    |
+                            <i class="fa fa-twitter-square" aria-hidden="true"></i>    |
+                            <i class="fa fa-instagram" aria-hidden="true"></i>    |
+                        </p>
+                    </span>
+                    <!-- <div class="collapse navbar-collapse" id='drops' id="bs-example-navbar-collapse-1">
+                        <ul class='navbar navbar-nav'>
+                            <li class ='drowdown'>
+                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Movies, TV
+                                     <span class="caret"></span></a>
+                                     <ul class='dropdown-menu'>
+                                         <li>Movies</li>
+                                         <li role='separator' class='divider'><a href="#">List of Movies</a></li>
+                                         <li><a href="#">In Theaters</a></li>
+                                         <li><a href="#">Top Ratied Movie</a></li>
+                                         <li><a href="#">Coming Soon</a></li>
+                                         <li>Charts and Trends</li>
+                                         <li><a href="#"></a>Box Office</li>
+                                          <li><a href="#"></a>Oscar Winners</li>
+                                           <li><a href="#"></a>Most Popular by Genre</li>
+                                     </ul>
+                            </li>
+                        </ul>
+
+                    </div> -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav"ng-controller='navBarController as vm'>
+            <li><a href="/movies">Movies <span class="sr-only">(current)</span></a></li>
+            <li><a href="/trailers">Trailers</a></li><span class="sr-only">(current)</span></a></li>
+            <li ng-show='!vm.getUsername()'><a href="/login">Login</a></li><span class="sr-only">(current)</span></a></li>
+            <li ng-show='vm.getUsername()'><a href="/login" ng-click='vm.logout()'>Logout</a></li><span class="sr-only">(current)</span></a></li>
+            <li ng-show='vm.getUsername()'>{{vm.getUsername()}}</li><span class="sr-only">(current)</span></a></li>
+
+            <!-- <span ng-show='!vm.getUsername()'><li><a href="/login">Login <span class="sr-only">(current)</span></a></li></span> -->
+      </ul>
+  </div>
+
+
+
+                </div>
+            </nav>
+
+            <ui-view></ui-view>
+
+        </div>
+    </div>
+
+
+
+  </div>
+
+  <script src="/bower_components/angular/angular.min.js"></script>
+  <script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <script src="/bower_components/angular-resource/angular-resource.min.js"></script>
+  <script src="/bower_components/angular-animate/angular-animate.min.js"></script>
+  <script src="/bower_components/angular-touch/angular-touch.min.js"></script>
+  <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+  <script src="/bower_components/angular-youtube-mb/dist/angular-youtube-embed.min.js"></script>
+
+
+  <script src="/ngApp/app.js"></script>
+  <!-- controllers -->
+  <script src="/ngApp/controllers/controllers.js"></script>
+  <script src="/ngApp/controllers/movieController.js" charset="utf-8"></script>
+  <script src="/ngApp/controllers/movieDetailsController.js" charset="utf-8"></script>
+  <script src="/ngApp/controllers/detailsController.js" charset="utf-8"></script>
+  <script src="/ngApp/controllers/trailerController.js" charset="utf-8"></script>
+  <script src="/ngApp/controllers/loginController.js" charset="utf-8"></script>
+  <script src="/ngApp/controllers/registerController.js" charset="utf-8"></script>
+  <script src="/ngApp/controllers/navBarController.js" charset="utf-8"></script>
+  <!-- services -->
+  <script src="/ngApp/services/services.js"></script>
+  <script src="/ngApp/services/moviesService.js" charset="utf-8"></script>
+  <script src="/ngApp/services/loginService.js" charset="utf-8"></script>
+  <script src="/ngApp/services/registerService.js" charset="utf-8"></script>
+
+</body>
+
+</html>

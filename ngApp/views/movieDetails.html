@@ -1,0 +1,39 @@
+<div class="movie">
+    <div class='container-fluid'>
+            <div class="col-md-8">
+                <table class="movTable">
+                    <tr class=''>
+                        <td class='tblWidth'>
+                                <img class='movPic' ng-src="{{vm.movie.imgUrl}}" alt="" width='200px'/>
+
+                        </td>
+                        <td style='text-align: left'>
+
+                            <h3><a href="#">{{vm.movie.title}}</a></h3>
+
+                            <p>
+                                {{vm.movie.rate}}
+                            </p>
+                            <hr class='detailsLine'>
+                            <p>
+                                {{vm.movie.genre}}
+                            </p>
+                            <p>
+                                {{vm.movie.description}}
+                            </p>
+                            <p>
+                                <strong>Director: </strong> {{vm.movie.director}}
+                            </p>
+                            <p>
+                                <strong>Stars: </strong>
+                                <span ng-repeat='a in vm.movie.actors'>{{a.firstName}} {{a.lastName}}, </span>
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-md-4">
+                <h2>Hi</h2>
+            </div>
+    </div>
+</div>
